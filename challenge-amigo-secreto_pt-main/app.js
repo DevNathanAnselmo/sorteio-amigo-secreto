@@ -1,10 +1,14 @@
-listaAmigos = [];
+let listaAmigos = [];
 
 function limparCampo(){                  // limpa o nome do campo de digitação após ser inserido na lista.
     let campoInserirNomes = document.querySelector('input')
     campoInserirNomes.value = '';
 }
+function limparNomes(){                  // limpar a exibição da lista após o sorteio
+    let listaDeNomes = document.getElementById('listaAmigos');
+    listaDeNomes.innerHTML = '';
 
+}
 function adicionarAmigo(){              // função que adiciona um nome a lista de nomes a serem sorteados.
     let inserirNomes = document.getElementById('amigo').value;
     let exibindoNomes = document.getElementById('listaAmigos');
@@ -19,9 +23,14 @@ function adicionarAmigo(){              // função que adiciona um nome a lista
     }
 }
 
-function sortearAmigo(){                 // sorteia um dos nomes que estão na lista.
-    let nomeSorteado = Math.floor(Math.random() * listaAmigos.length);
-    let nomeEscolhido = listaAmigos[nomeSorteado];
-    let exibindoNomeSorteado = document.getElementById('resultado');
-    exibindoNomeSorteado.innerHTML = `O nome sorteado foi: ${nomeEscolhido}`;
+function sortearAmigo(){  
+    if (listaAmigos.length > 1){               // sorteia um dos nomes que estão na lista.
+        let nomeSorteado = Math.floor(Math.random() * listaAmigos.length);
+        let nomeEscolhido = listaAmigos[nomeSorteado];
+        let exibindoNomeSorteado = document.getElementById('resultado');
+        exibindoNomeSorteado.innerHTML = `O nome sorteado foi: ${nomeEscolhido}`;
+        limparNomes();
+    }else{
+        alert('insira mais de um nome antes de sortear');
+    }
 }

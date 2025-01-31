@@ -1,12 +1,12 @@
 listaDeNomes = [];
 function adicionarAmigo(){
     let inserirNomes = document.getElementById('amigo').value;
-    limparCampo();
-    listaDeNomes.push(inserirNomes);
-    console.log(listaDeNomes);
-    if (listaDeNomes.includes('')){
-        listaDeNomes.pop();
+    if (inserirNomes == ''){
         alert('Você não pode adicionar um nome vazio!');
+    }else{
+        listaDeNomes.push(inserirNomes);
+        limparCampo();
+        console.log(listaDeNomes);
     }
 }
 function limparCampo(){
